@@ -9,11 +9,8 @@ export default function App() {
   const [answer, setAnswer] = useState('');
   const [number] = useState(Math.floor(Math.random() * 100) + 1);
   
-  
-    const [count, setCount] = useState(1);
-
-  //Counting the amount of guesses made.
-  
+  //Counting the amount of guesses made, starting with 1 for the first click.
+  const [count, setCount] = useState(1);
 
   //Comparing the guessed number to the random number, that was set when starting the app.
   const guess = () => {
@@ -23,13 +20,11 @@ export default function App() {
     } else if (Number(text) > number) {
       setAnswer(`${text} is too high.`)
     } else {
-      setAnswer(`${text} is right!`)
-      
+      setAnswer(`${text} is right!`)    
       Alert.alert(`You guessed the number in ${ count } guesses`);
     }
   }
 
-  //{() => {setCount(count + 1)}
 
   return (
     <View style={styles.container}>
